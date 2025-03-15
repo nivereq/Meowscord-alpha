@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "@giphy/js-fetch-api": "^5.6.0",
+    "better-sqlite3": "^11.8.1",
+    "discord.js": "^14.18.0",
+    "dotenv": "^16.4.7",
+    "quick.db": "^9.1.7"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "name": "mewscord",
+  "version": "0.0.1",
+  "description": "simple discord bot written in ts",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsup src/index.ts --minify"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "cute"
+  ],
+  "author": "nivereq",
+  "license": "UNLICENSED"
+}
