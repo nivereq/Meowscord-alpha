@@ -27,16 +27,21 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Create .env with Github Secrets
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
+        GIPHY_KEY: ${{ secrets.GIPHY_KEY }}
       run: |
         touch .env
         echo DISCORD_TOKEN=$DISCORD_TOKEN >> .env
         echo DISCORD_CLIENT_ID=$DISCORD_CLIENT_ID >> .env
         echo GIPHY_KEY=$GIPHY_KEY >> .env
+    - name: Run
       env:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
         GIPHY_KEY: ${{ secrets.GIPHY_KEY }}
-    - run: |
+      run: |
         npm ci
         npm run build --if-present
         npm run start
