@@ -15,7 +15,7 @@ let UptimeFormatted = time(Math.round(Uptime/1000), "R");
 
 /*  💻 Export command execute function */
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction) {
   let CommandsCount = Object.values(commands).length;
   let Memory = process.memoryUsage();
   let MemoryUsed = Memory.heapUsed;

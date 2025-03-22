@@ -1,6 +1,6 @@
 /*  📂 Import Libs */
 
-import { CommandInteraction, SlashCommandBuilder } from "discord.js";
+import { ChatInputCommandInteraction, CommandInteraction, SlashCommandBuilder } from "discord.js";
 import { GiphyFetch } from '@giphy/js-fetch-api';
 
 

@@ -1,17 +1,19 @@
 /*  📂 Import Libs */
-import { Client, ActivityType, MessageType, Message, OmitPartialGroupDMChannel, EmbedBuilder, CategoryChannelResolvable, CategoryChannel, ChannelType } from "discord.js";
+import { Client, ActivityType } from "discord.js";
 import { config } from "./config";
 import { commands } from "./commands";
 import { deployCommands } from "./registerSlashes"
-import { QuickDB } from "quick.db";
+
+import { database } from "./database";
 
 let statuses = ["you <3", "your pretty eyes <3", "nivereq", "other cats:3", "ALPHA", "{{GUILDS}} guilds."]
 
-let db = new QuickDB();
 
 const client = new Client({
   intents: ["Guilds", "GuildMessages", "DirectMessages", "DirectMessageTyping"],
 });
+
+
 
 client.on("ready", async () => {
     console.log("Discord bot is ready! 🤖");
@@ -45,9 +47,10 @@ client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) {
     return;
   }
+
   const { commandName } = interaction;
   if (commands[commandName as keyof typeof commands]) {
-    commands[commandName as keyof typeof commands].execute(interaction);
+    commands[commandName as keyof typeof commands].execute(interaction);  
   }
 });
 
